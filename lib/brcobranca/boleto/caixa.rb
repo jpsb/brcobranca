@@ -43,6 +43,12 @@ module Brcobranca
         '104'
       end
 
+      # Valor total do documento: <b>valor</b>
+      # @return [Float]
+      def valor_documento
+        self.valor.to_f
+      end
+
       # Dígito verificador do código do banco em módulo 10
       # Módulo 10 de 104 é 0
       # @return [String]
