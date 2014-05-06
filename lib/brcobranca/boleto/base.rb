@@ -1,4 +1,4 @@
-# encoding: utf-8
+# -*- encoding: utf-8 -*-
 # @author Kivanio Barbosa
 module Brcobranca
   module Boleto
