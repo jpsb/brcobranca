@@ -7,8 +7,11 @@ module Brcobranca
     class RetornoCnab400Bradesco < Base
       extend ParseLine::FixedWidth # Extendendo parseline
 
+      # Regex para remoção de headers e trailers além de registros diferentes de T ou U
+      REGEX_DE_EXCLUSAO_DE_REGISTROS_NAO_1_OU_3 = /^((?!^[1|3].*$).)*$/
+
       def self.load_lines(file, options={})
-        default_options = {:except => [1, 9]} #por padrao ignora a primeira linha que é header
+        default_options = {:except => REGEX_DE_EXCLUSAO_DE_REGISTROS_NAO_1_OU_3} #por padrao ignora a primeira linha que é header e a última que é o trailler
         options = default_options.merge!(options)
 
         super file, options
